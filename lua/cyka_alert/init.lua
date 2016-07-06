@@ -23,16 +23,3 @@ hook.Add("PlayerInitialSpawn","cyka_alert",function(ply)
 		net.Send(player.GetAll())
 	end
 end)
-
-function HSVToVector(h,s,v)
-	local clr = HSVToColor(h,s,v)
-	return Vector(clr.r/255,clr.g/255,clr.b/255)
-end
-
-hook.Add("Think","Pizdetz",function()
-	for k,v in pairs(player.GetAll()) do
-		if v:IsSuperAdmin() then
-			v:SetPlayerColor(HSVToVector(CurTime()*50%360,1,1))
-		end
-	end
-end)
